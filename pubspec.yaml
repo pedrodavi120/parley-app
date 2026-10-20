@@ -1,0 +1,44 @@
+name: parley_app
+description: App de tradução simultânea voz-para-voz.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  # ATUALIZADO: Versão 7.0.0+ corrige erros de compilação no Android (Registrar/Activity)
+  speech_to_text: ^7.0.0
+  flutter_tts: ^3.8.3
+  translator: ^1.0.0
+  permission_handler: ^11.0.1
+  avatar_glow: ^3.0.1 
+  flutter_dotenv: ^6.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  # Adicionamos esta dependência para gerar os ícones
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/files/
+    - .env
+
+# --- CONFIGURAÇÃO DO GERADOR DE ÍCONES ---
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "assets/files/logoab.png" # Usa a sua logo principal
+  min_sdk_android: 21
+  # Configuração para Android (Ícones Adaptativos)
+  adaptive_icon_background: "#FFFFFF" # Fundo branco
+  adaptive_icon_foreground: "assets/files/logoab.png"
+  # Opcional: remover o ícone alpha no iOS para evitar fundo preto
+  remove_alpha_ios: true

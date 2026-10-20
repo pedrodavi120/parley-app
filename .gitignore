@@ -1,0 +1,70 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+Thumbs.db
+
+# Environment variables & secrets (CRITICAL FOR OPEN SOURCE)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+*.crt
+credentials.json
+secret.yaml
+secrets.yaml
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Flutter / Dart / Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# Android build & sensitive local properties
+.gradle/
+**/android/.gradle/
+android/local.properties
+**/android/local.properties
+/android/app/debug
+/android/app/profile
+/android/app/release
+*.keystore
+*.jks
+google-services.json
+
+# iOS / macOS sensitive credentials & ephemeral files
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/flutter_export_environment.sh
+**/macos/Flutter/ephemeral/
+GoogleService-Info.plist
+*.mobileprovision
+*.p12
+*.cer
+
+# Symbolication & Obfuscation
+app.*.symbols
+app.*.map.json
