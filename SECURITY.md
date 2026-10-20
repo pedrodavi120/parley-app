@@ -1,43 +1,43 @@
-# Security Policy
+# Política de Segurança
 
-The Parley team and Void Studio take the security and privacy of our users, contributors, and systems very seriously.
-
----
-
-## Supported Versions
-
-| Version | Supported |
-| ------- | --------- |
-| 1.0.x   | Yes       |
-| < 1.0   | No        |
+A equipe do Parley e a [Void Studio](https://www.voidstudio.com.br) tratam com rigor a segurança e a privacidade de usuários, contribuidores e sistemas.
 
 ---
 
-## Reporting a Vulnerability
+## Versões com Suporte
 
-If you discover a security vulnerability, sensitive data exposure, or potential exploit in Parley, **please do not disclose it publicly via GitHub issues or discussions.**
-
-### Contact
-Please send a private security report to:
-- **Email:** `contato@voidstudio.com.br` (or the project maintainer's direct contact)
-- **Subject:** `[SECURITY] Parley Vulnerability Report`
-
-### What to Include in Your Report
-To help us triage and resolve the issue quickly, please provide:
-1. Description of the vulnerability.
-2. Steps to reproduce the vulnerability (proof of concept, scripts, or screenshots).
-3. The affected platform (Android, iOS, macOS, Windows, Linux, Web).
-4. Potential impact or risk assessment.
-
-### Our Response Timeline
-- **Initial Response:** Within 48 hours acknowledging receipt of your report.
-- **Triage & Assessment:** Regular updates regarding validation and fix progress.
-- **Resolution & Release:** A patched version will be tagged and released, followed by public acknowledgment (unless anonymity is preferred).
+| Versão | Suportada |
+| :----- | :-------- |
+| 1.0.x  | Sim       |
+| < 1.0  | Não       |
 
 ---
 
-## Secrets Management & Open Source Safety
+## Reportando uma Vulnerabilidade
 
-- **No Hardcoded Credentials:** Never hardcode API keys, signing certificates, keystore passwords, or tokens in source code.
-- **Environment Isolation:** All sensitive configuration keys must reside exclusively in `.env` (which is excluded by `.gitignore`).
-- **Secret Scanning:** We encourage contributors to run tools such as `git-secrets` or `gitleaks` prior to opening pull requests.
+Caso identifique uma vulnerabilidade de segurança, exposição acidental de credenciais ou falha crítica no Parley, **não divulgue o problema publicamente através de issues ou discussões no GitHub.**
+
+### Contato de Segurança
+Envie um relatório confidencial para:
+- **E-mail:** `contato@voidstudio.com.br` (ou diretamente aos mantenedores do repositório)
+- **Assunto:** `[SEGURANÇA] Relatório de Vulnerabilidade Parley`
+
+### Informações Recomendadas
+Para agilizar a análise e correção, inclua:
+1. Descrição clara da vulnerabilidade identificada.
+2. Instruções de reprodução (passo a passo, scripts de prova de conceito ou capturas de tela).
+3. Plataformas afetadas (Android, iOS, macOS, Windows, Linux, Web).
+4. Avaliação preliminar de risco ou impacto potencial.
+
+### Cronograma de Atendimento
+- **Confirmação de Recebimento:** Em até 48 horas úteis.
+- **Triagem e Validação:** Atualizações regulares sobre o status de resolução.
+- **Correção e Lançamento:** Publicação da versão corrigida em conjunto com notas de versão (mantendo sigilo sobre os dados do pesquisador, caso solicitado).
+
+---
+
+## Gestão de Segredos e Segurança Open-Source
+
+- **Zero Credenciais no Código:** Proibição estrita de chaves de API, senhas de keystores, certificados de assinatura ou tokens hardcoded no repositório.
+- **Isolamento de Ambiente:** Todas as credenciais operacionais devem residir exclusivamente no `.env` (bloqueado pelo `.gitignore`).
+- **Verificação Prévia:** Recomendamos o uso de ferramentas de varredura de segredos (como `git-secrets` ou `gitleaks`) antes de submeter pull requests.

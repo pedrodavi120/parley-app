@@ -2,8 +2,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:parley_app/data/models/translation_item.dart';
 
 void main() {
-  group('TranslationItem Tests', () {
-    test('Portuguese source item returns expected locales and properties', () {
+  group('Testes de TranslationItem', () {
+    test('Mensagem com origem em Português retorna localidades e propriedades esperadas', () {
       const item = TranslationItem(
         originalText: 'Olá, como vai?',
         translatedText: 'Hello, how are you?',
@@ -16,7 +16,7 @@ void main() {
       expect(item.isUserMe, isTrue);
     });
 
-    test('English source item returns expected locales and properties', () {
+    test('Mensagem com origem em Inglês retorna localidades e propriedades esperadas', () {
       const item = TranslationItem(
         originalText: 'Good morning',
         translatedText: 'Bom dia',

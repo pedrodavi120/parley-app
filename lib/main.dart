@@ -6,13 +6,13 @@ import 'ui/features/splash/splash_screen.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Load environment variables (.env) securely before starting the app
+  // Carrega as variáveis de ambiente (.env) de forma segura antes da execução da aplicação
   await EnvConfig.initialize();
 
   runApp(const ParleyApp());
 }
 
-/// Root widget configuring theme and initial routing.
+/// Widget raiz da aplicação configurando tema global e tela inicial.
 class ParleyApp extends StatelessWidget {
   const ParleyApp({super.key});
 

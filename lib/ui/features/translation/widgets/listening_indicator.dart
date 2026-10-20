@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Indicator displayed while the speech recognition engine is actively listening.
+/// Indicador visual exibido enquanto o motor de reconhecimento de fala está ativo escutando o usuário.
 class ListeningIndicator extends StatelessWidget {
   final String partialText;
 

@@ -4,7 +4,7 @@ import '../../../core/constants/app_constants.dart';
 import '../../../core/theme/app_theme.dart';
 import '../translation/views/parley_screen.dart';
 
-/// Clean animated Splash Screen presenting Parley branding and developer credentials.
+/// Tela de abertura (Splash Screen) animada com a identidade do Parley e da Void Studio.
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -152,6 +152,15 @@ class _SplashScreenState extends State<SplashScreen>
                             ],
                           );
                         },
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        AppConstants.developerDomain,
+                        style: TextStyle(
+                          color: Colors.grey[400],
+                          fontSize: 11,
+                          letterSpacing: 0.5,
+                        ),
                       ),
                     ],
                   ),

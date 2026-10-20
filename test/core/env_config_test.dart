@@ -4,8 +4,8 @@ import 'package:parley_app/core/config/env_config.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  group('EnvConfig Tests', () {
-    test('Fallback values are safe and robust when .env is initialized', () async {
+  group('Testes de EnvConfig', () {
+    test('Valores de fallback são seguros e íntegros após inicialização do EnvConfig', () async {
       await EnvConfig.initialize();
 
       expect(EnvConfig.appName, isNotEmpty);

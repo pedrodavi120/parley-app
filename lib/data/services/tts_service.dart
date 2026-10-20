@@ -1,11 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
-/// Service managing Text-To-Speech engine lifecycle and speech playback.
+/// Serviço gerenciador do ciclo de vida do motor de Síntese de Voz (TTS) e reprodução de áudio.
 class TtsService {
   final FlutterTts _flutterTts = FlutterTts();
 
-  /// Configures TTS audio categories for iOS and shared audio instances.
+  /// Configura categorias de áudio do TTS para instâncias compartilhadas e Bluetooth.
   Future<void> initialize() async {
     try {
       await _flutterTts.setSharedInstance(true);
@@ -17,11 +17,11 @@ class TtsService {
         ],
       );
     } catch (e) {
-      debugPrint('[TtsService] Audio configuration error: $e');
+      debugPrint('[TtsService] Erro ao configurar categoria de áudio: $e');
     }
   }
 
-  /// Synthesizes and plays the provided text in the target language.
+  /// Sintetiza e reproduz o texto informado no idioma especificado.
   Future<void> speak({
     required String text,
     required String langId,
@@ -32,16 +32,16 @@ class TtsService {
       await _flutterTts.setPitch(pitch);
       await _flutterTts.speak(text);
     } catch (e) {
-      debugPrint('[TtsService] Speech playback failed: $e');
+      debugPrint('[TtsService] Falha na reprodução de síntese de voz: $e');
     }
   }
 
-  /// Stops any currently playing audio.
+  /// Interrompe qualquer áudio em reprodução ativa.
   Future<void> stop() async {
     try {
       await _flutterTts.stop();
     } catch (e) {
-      debugPrint('[TtsService] Error stopping audio: $e');
+      debugPrint('[TtsService] Erro ao interromper áudio: $e');
     }
   }
 }

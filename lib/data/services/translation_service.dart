@@ -2,28 +2,27 @@ import 'package:flutter/foundation.dart';
 import 'package:translator/translator.dart';
 import '../../core/config/env_config.dart';
 
-/// Service responsible for handling text translation.
+/// Serviço responsável pelo pipeline de tradução de texto.
 class TranslationService {
   final GoogleTranslator _translator = GoogleTranslator();
 
-  /// Translates text between specified languages.
-  /// If a custom API key is defined in EnvConfig, it can be extended to use dedicated Cloud endpoints.
+  /// Traduz o texto entre os idiomas especificados.
+  /// Caso uma chave de API esteja configurada no EnvConfig, pode ser estendido para endpoints dedicados.
   Future<String> translate({
     required String text,
     required String from,
     required String to,
   }) async {
     try {
-      // Check if custom translation key/url is configured
       final apiKey = EnvConfig.translationApiKey;
       if (apiKey != null && apiKey.isNotEmpty) {
-        debugPrint('[TranslationService] Using configured API credentials.');
+        debugPrint('[TranslationService] Utilizando credenciais de API configuradas no ambiente.');
       }
 
       final translation = await _translator.translate(text, from: from, to: to);
       return translation.text;
     } catch (e, stackTrace) {
-      debugPrint('[TranslationService] Error during translation: $e\n$stackTrace');
+      debugPrint('[TranslationService] Erro durante a tradução: $e\n$stackTrace');
       rethrow;
     }
   }

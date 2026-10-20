@@ -7,7 +7,7 @@ import '../widgets/chat_bubble.dart';
 import '../widgets/listening_indicator.dart';
 import '../widgets/mic_button.dart';
 
-/// Main interactive screen for voice-to-voice translation.
+/// Tela principal interativa para tradução simultânea voz-para-voz.
 class ParleyScreen extends StatefulWidget {
   const ParleyScreen({super.key});
 

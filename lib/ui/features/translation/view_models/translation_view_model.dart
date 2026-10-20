@@ -4,7 +4,7 @@ import '../../../../data/services/speech_service.dart';
 import '../../../../data/services/translation_service.dart';
 import '../../../../data/services/tts_service.dart';
 
-/// ViewModel managing state, voice recognition, translation pipelines, and audio synthesis.
+/// ViewModel responsável pelo gerenciamento de estado, captura de fala, pipeline de tradução e síntese de áudio.
 class TranslationViewModel extends ChangeNotifier {
   final SpeechService _speechService;
   final TtsService _ttsService;
@@ -31,24 +31,24 @@ class TranslationViewModel extends ChangeNotifier {
   String get partialText => _partialText;
   bool get autoPlayAudio => _autoPlayAudio;
 
-  /// Initializes system permissions, audio categories, and engines.
+  /// Inicializa permissões, categorias de áudio e motores de voz.
   Future<void> initialize() async {
     await _ttsService.initialize();
   }
 
-  /// Toggles automatic audio playback on completion.
+  /// Alterna a reprodução automática de áudio após a tradução.
   void toggleAutoPlayAudio() {
     _autoPlayAudio = !_autoPlayAudio;
     notifyListeners();
   }
 
-  /// Clears current conversation history.
+  /// Limpa o histórico de conversas atual.
   void clearConversation() {
     _conversation.clear();
     notifyListeners();
   }
 
-  /// Starts or stops voice recognition for the specified locale.
+  /// Alterna a escuta do microfone para a localidade especificada.
   Future<void> toggleListening(String localeId) async {
     if (!_isListening) {
       final available = await _speechService.initialize(
@@ -95,7 +95,7 @@ class TranslationViewModel extends ChangeNotifier {
     }
   }
 
-  /// Processes text translation between Portuguese and English.
+  /// Processa a tradução do texto entre Português e Inglês.
   Future<void> _processTranslation(String text, String sourceLocale) async {
     final bool isSourcePt = sourceLocale == 'pt_BR';
     final String from = isSourcePt ? 'pt' : 'en';
@@ -124,11 +124,11 @@ class TranslationViewModel extends ChangeNotifier {
         await speakText(translatedText, targetLangId);
       }
     } catch (e) {
-      debugPrint('[TranslationViewModel] Translation pipeline error: $e');
+      debugPrint('[TranslationViewModel] Falha no pipeline de tradução: $e');
     }
   }
 
-  /// Plays synthesized audio for the given text.
+  /// Executa a síntese de voz para o texto e idioma indicados.
   Future<void> speakText(String text, String langId) async {
     await _ttsService.speak(text: text, langId: langId);
   }

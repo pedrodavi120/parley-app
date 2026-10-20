@@ -1,8 +1,8 @@
-/// Immutable model representing an entry in the live conversation.
+/// Modelo imutável que representa uma mensagem dentro do fluxo de conversa.
 class TranslationItem {
   final String originalText;
   final String translatedText;
-  final String originalLang; // 'pt' or 'en'
+  final String originalLang; // 'pt' ou 'en'
   final bool isUserMe;
 
   const TranslationItem({
@@ -12,12 +12,12 @@ class TranslationItem {
     this.isUserMe = true,
   });
 
-  /// Helper getter to identify if the source language was Portuguese
+  /// Identifica se o idioma de origem foi o Português
   bool get isSourcePortuguese => originalLang == 'pt';
 
-  /// Returns the corresponding speech language ID for original text
+  /// Retorna o código de localidade para reprodução do texto original
   String get originalLocaleId => isSourcePortuguese ? 'pt-BR' : 'en-US';
 
-  /// Returns the corresponding speech language ID for translated text
+  /// Retorna o código de localidade para reprodução do texto traduzido
   String get targetLocaleId => isSourcePortuguese ? 'en-US' : 'pt-BR';
 }

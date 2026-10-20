@@ -8,10 +8,10 @@
   </p>
 
   <p align="center">
-    <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge" alt="License MIT"></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/Licen%C3%A7a-MIT-blue.svg?style=for-the-badge" alt="Licença MIT"></a>
     <img src="https://img.shields.io/badge/Flutter-3.0%2B-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter">
     <img src="https://img.shields.io/badge/Dart-3.0%2B-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart">
-    <img src="https://img.shields.io/badge/Platform-Android%20%7C%20iOS%20%7C%20macOS%20%7C%20Windows-brightgreen?style=for-the-badge" alt="Platforms">
+    <img src="https://img.shields.io/badge/Plataformas-Android%20%7C%20iOS%20%7C%20macOS%20%7C%20Windows-brightgreen?style=for-the-badge" alt="Plataformas">
   </p>
 
 </div>
@@ -149,7 +149,9 @@ Este projeto é distribuído sob os termos da licença **MIT**. Consulte o arqui
 <div align="center">
 
   <p>Desenvolvido por</p>
-  <img src="assets/files/logovoid.png" alt="Void Studio" height="40"/>
-  <p><strong>Void Studio</strong></p>
+  <a href="https://www.voidstudio.com.br" target="_blank" rel="noopener noreferrer">
+    <img src="assets/files/logovoid.png" alt="Void Studio" height="40"/>
+  </a>
+  <p><a href="https://www.voidstudio.com.br" target="_blank" rel="noopener noreferrer"><strong>www.voidstudio.com.br</strong></a></p>
 
 </div>

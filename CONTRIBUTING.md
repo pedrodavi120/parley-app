@@ -1,47 +1,51 @@
-# Contributing to Parley
+# Contribuindo para o Parley
 
-Thank you for your interest in contributing to **Parley**! We welcome contributions from developers worldwide to help break language barriers through fast, voice-to-voice translation.
+Agradecemos pelo seu interesse em contribuir com o **Parley**! Todas as contribuições da comunidade são bem-vindas para aprimorar a experiência de tradução simultânea voz-para-voz em tempo real.
 
----
-
-## Code of Conduct
-
-We are committed to providing a friendly, safe, and welcoming environment for all contributors, regardless of experience level, gender identity, sexual orientation, disability, personal appearance, race, ethnicity, or religion. Please be respectful and constructive in all discussions.
+O projeto é mantido com o suporte da [Void Studio](https://www.voidstudio.com.br).
 
 ---
 
-## Getting Started
+## Código de Conduta
 
-### Prerequisites
+Temos o compromisso de proporcionar um ambiente acolhedor, profissional e seguro para todos os colaboradores, independentemente do nível de experiência, gênero, orientação sexual, deficiência, aparência pessoal, raça, etnia ou religião. Espera-se respeito e comunicação construtiva em todas as interações.
+
+---
+
+## Primeiros Passos
+
+### Pré-requisitos
 
 - [Flutter SDK](https://flutter.dev/docs/get-started/install) (`>= 3.0.0 < 4.0.0`)
-- [Dart SDK](https://dart.dev/get-dart) (included with Flutter)
-- Android Studio / VS Code with Flutter and Dart extensions
-- Physical mobile device or emulator with microphone support
+- [Dart SDK](https://dart.dev/get-dart) (incluso no Flutter)
+- Android Studio ou VS Code com as extensões oficiais de Flutter e Dart instaladas
+- Dispositivo físico ou emulador com microfone funcional
 
-### Initial Setup
+### Configuração Inicial
 
-1. **Fork and clone the repository:**
+1. **Faça o fork e clone o repositório:**
    ```bash
    git clone https://github.com/pedrodavi120/parley-app.git
    cd parley_app
    ```
 
-2. **Configure Environment Variables:**
-   Copy the example environment template to create your local `.env`:
+2. **Configure as Variáveis de Ambiente:**
+   Copie o modelo de variáveis de ambiente para criar o seu arquivo `.env` local:
    ```bash
    cp .env.example .env
+   # No Windows PowerShell:
+   Copy-Item .env.example .env
    ```
    > [!IMPORTANT]
-   > Never commit `.env` or any sensitive credentials to version control. The repository's `.gitignore` is pre-configured to block sensitive environment files.
+   > Nunca submeta o arquivo `.env` ou qualquer credencial sensível para o controle de versão. O arquivo `.gitignore` do projeto está configurado para bloquear arquivos de ambiente.
 
-3. **Install Dependencies:**
+3. **Instale as dependências:**
    ```bash
    flutter pub get
    ```
 
-4. **Verify Environment:**
-   Run the test suite and static analysis:
+4. **Valide o ambiente local:**
+   Execute a suíte de testes e a análise estática:
    ```bash
    flutter test
    flutter analyze
@@ -49,52 +53,54 @@ We are committed to providing a friendly, safe, and welcoming environment for al
 
 ---
 
-## Development Workflow
+## Fluxo de Desenvolvimento
 
-1. **Create a Topic Branch:**
+1. **Crie uma branch para sua funcionalidade ou correção:**
    ```bash
-   git checkout -b feature/your-feature-name
-   # or
-   git checkout -b fix/your-bugfix-name
+   git checkout -b feature/nome-da-funcionalidade
+   # ou
+   git checkout -b fix/nome-da-correcao
    ```
 
-2. **Architecture Guidelines:**
-   Follow Parley's layered architecture:
-   - **`lib/core/`**: Shared theme tokens, constants, and environment configurations.
-   - **`lib/data/`**: Data models, external service wrappers (Speech, TTS, Translation).
-   - **`lib/ui/`**: Feature presentation, ViewModels (`ChangeNotifier`), and modular widgets.
-   - **Zero Mock Data in Production:** Only use mock/synthetic data in `test/`.
+2. **Diretrizes Arquiteturais:**
+   Mantenha a arquitetura em camadas do Parley:
+   - **`lib/core/`**: Configurações de ambiente, constantes globais e tokens de tema.
+   - **`lib/data/`**: Modelos de dados e serviços desacoplados (Speech, TTS, Tradução).
+   - **`lib/ui/`**: Camada de apresentação, ViewModels (`ChangeNotifier`) e widgets modulares.
+   - **Zero Dados Falsos em Produção:** Dados simulados pertencem exclusivamente aos testes automatizados (`test/`).
 
-3. **Code Style & Quality:**
-   - Adhere to effective Dart guidelines.
-   - Run `flutter analyze` before committing. All changes must compile with **0 warnings and 0 errors**.
-   - Add automated tests in `test/` for new services, models, and UI components. Ensure `flutter test` passes 100%.
+3. **Estilo de Código e Rigor Técnico:**
+   - Siga as diretrizes de código oficiais do Dart.
+   - Execute `flutter analyze` antes de criar o commit. Todas as alterações devem compilar com **0 warnings e 0 errors**.
+   - Adicione testes automatizados em `test/` para novos serviços, modelos e componentes de interface. Garanta 100% de aprovação no `flutter test`.
 
-4. **Commit Conventions:**
-   We follow [Conventional Commits](https://www.conventionalcommits.org/):
-   - `feat: add offline language pack support`
-   - `fix: resolve iOS microphone permission crash`
-   - `docs: update translation provider guide`
-   - `refactor: extract audio player to service layer`
-   - `test: add unit tests for translation cache`
+4. **Convenção de Commits:**
+   Adotamos a especificação [Conventional Commits](https://www.conventionalcommits.org/):
+   - `feat: suporte a pacote de idiomas offline`
+   - `fix: tratamento de permissao de microfone no iOS`
+   - `docs: atualizacao do guia de variaveis de ambiente`
+   - `refactor: modularizacao do servico de audio`
+   - `test: testes unitarios para pipeline de traducao`
 
 ---
 
-## Submitting Pull Requests
+## Submissão de Pull Requests
 
-1. Push your branch to your fork:
+1. Envie a branch para o seu fork:
    ```bash
-   git push origin feature/your-feature-name
+   git push origin feature/nome-da-funcionalidade
    ```
-2. Open a Pull Request against the `main` branch.
-3. Complete the PR description explaining:
-   - What changes were made and why.
-   - Testing steps and platform validation (Android / iOS / Desktop / Web).
-   - Confirmation that no secrets or `.env` files are included.
-4. Maintainers will review your PR and provide constructive feedback.
+2. Abra um Pull Request direcionado para a branch `main`.
+3. Preencha a descrição do PR informando:
+   - Resumo das alterações e motivação técnica.
+   - Testes executados e validação em plataformas (Android, iOS, macOS, Windows, Linux, Web).
+   - Confirmação de que nenhum arquivo `.env` ou credencial foi incluído.
+4. Os mantenedores revisarão o PR com feedback técnico.
 
 ---
 
-## Questions & Discussions
+## Suporte e Discussões
 
-Open an issue on GitHub for bug reports, architectural questions, or feature requests. Thank you for making Parley better!
+Para relatar falhas, tirar dúvidas arquiteturais ou sugerir melhorias, abra uma Issue no GitHub.
+
+Desenvolvido com excelência pela [Void Studio](https://www.voidstudio.com.br).

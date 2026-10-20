@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../data/models/translation_item.dart';
 
-/// Presentation widget for an individual translation message bubble.
+/// Widget de exibição para cada balão de mensagem traduzida.
 class ChatBubble extends StatelessWidget {
   final TranslationItem item;
   final void Function(String text, String langId) onSpeak;

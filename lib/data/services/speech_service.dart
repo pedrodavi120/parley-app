@@ -4,7 +4,7 @@ import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import '../../core/config/env_config.dart';
 
-/// Service managing Speech-To-Text microphone access and voice recognition.
+/// Serviço responsável pelo acesso ao microfone e motor de reconhecimento de fala (STT).
 class SpeechService {
   final stt.SpeechToText _speech = stt.SpeechToText();
   bool _isAvailable = false;
@@ -12,7 +12,7 @@ class SpeechService {
   bool get isAvailable => _isAvailable;
   bool get isListening => _speech.isListening;
 
-  /// Requests microphone permissions and initializes speech recognition engine.
+  /// Solicita permissões de microfone e inicializa o motor de reconhecimento de voz.
   Future<bool> initialize({
     required void Function(String status) onStatus,
     required void Function(dynamic error) onError,
@@ -20,7 +20,7 @@ class SpeechService {
     try {
       final status = await Permission.microphone.request();
       if (!status.isGranted) {
-        debugPrint('[SpeechService] Microphone permission was not granted.');
+        debugPrint('[SpeechService] Permissão de microfone não foi concedida pelo usuário.');
         return false;
       }
 
@@ -30,18 +30,18 @@ class SpeechService {
       );
       return _isAvailable;
     } catch (e) {
-      debugPrint('[SpeechService] Initialization error: $e');
+      debugPrint('[SpeechService] Erro ao inicializar reconhecimento de fala: $e');
       return false;
     }
   }
 
-  /// Begins listening for speech in the requested locale.
+  /// Inicia a captura de fala na localidade informada.
   Future<void> listen({
     required String localeId,
     required void Function(SpeechRecognitionResult result) onResult,
   }) async {
     if (!_isAvailable) {
-      debugPrint('[SpeechService] Speech recognition is not available.');
+      debugPrint('[SpeechService] Reconhecimento de fala indisponível.');
       return;
     }
 
@@ -53,12 +53,12 @@ class SpeechService {
     );
   }
 
-  /// Stops the current listening session.
+  /// Interrompe a sessão atual de escuta.
   Future<void> stop() async {
     try {
       await _speech.stop();
     } catch (e) {
-      debugPrint('[SpeechService] Error stopping listening: $e');
+      debugPrint('[SpeechService] Erro ao interromper escuta: $e');
     }
   }
 }

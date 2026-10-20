@@ -1,43 +1,43 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-/// Centralized configuration managing environment variables from .env
+/// Configuração centralizada para gestão segura de variáveis de ambiente (.env).
 class EnvConfig {
   EnvConfig._();
 
-  /// Initializes dotenv. Gracefully handles missing .env in CI/CD or fresh clones.
+  /// Inicializa o dotenv. Trata ausência do arquivo .env com fallbacks seguros.
   static Future<void> initialize() async {
     try {
       await dotenv.load(fileName: '.env');
-      debugPrint('[EnvConfig] Environment variables loaded from .env');
+      debugPrint('[EnvConfig] Variáveis de ambiente carregadas do .env com sucesso.');
     } catch (e) {
-      debugPrint('[EnvConfig] Notice: .env not loaded ($e). Using default configurations.');
+      debugPrint('[EnvConfig] Aviso: Arquivo .env não encontrado ($e). Utilizando configurações padrão.');
     }
   }
 
-  /// App display name
+  /// Nome de exibição da aplicação
   static String get appName => dotenv.maybeGet('APP_NAME') ?? 'Parley';
 
-  /// App environment mode (development, staging, production)
+  /// Ambiente de execução (development, staging, production)
   static String get appEnv => dotenv.maybeGet('APP_ENV') ?? 'development';
 
-  /// Speech recognition listen timeout in seconds
+  /// Tempo limite de escuta contínua do microfone em segundos
   static int get speechListenTimeoutSeconds =>
       int.tryParse(dotenv.maybeGet('SPEECH_LISTEN_TIMEOUT_SECONDS') ?? '') ?? 20;
 
-  /// Speech recognition pause timeout in seconds
+  /// Intervalo de silêncio para encerramento de captura em segundos
   static int get speechPauseSeconds =>
       int.tryParse(dotenv.maybeGet('SPEECH_PAUSE_SECONDS') ?? '') ?? 2;
 
-  /// Default source locale for Portuguese
+  /// Localidade de origem padrão (Português)
   static String get defaultSourceLocale =>
       dotenv.maybeGet('DEFAULT_SOURCE_LOCALE') ?? 'pt_BR';
 
-  /// Default target locale for English
+  /// Localidade de destino padrão (Inglês)
   static String get defaultTargetLocale =>
       dotenv.maybeGet('DEFAULT_TARGET_LOCALE') ?? 'en_US';
 
-  /// Optional translation API credentials
+  /// Credenciais opcionais de API dedicada de tradução
   static String? get translationApiKey => dotenv.maybeGet('TRANSLATION_API_KEY');
   static String? get translationApiUrl => dotenv.maybeGet('TRANSLATION_API_URL');
 }

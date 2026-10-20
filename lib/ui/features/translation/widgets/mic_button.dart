@@ -1,7 +1,7 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 
-/// Floating microphone trigger button with pulsing glow animation and gradient aesthetic.
+/// Botão flutuante de microfone com pulso animado (AvatarGlow) e gradiente estético.
 class MicButton extends StatelessWidget {
   final String langName;
   final String langCode;

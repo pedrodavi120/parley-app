@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Entrance animation widget that fades and slides its child upward smoothly.
+/// Widget de animação de entrada com transição suave de opacidade e deslocamento vertical.
 class AnimateInEffect extends StatefulWidget {
   final Widget child;
   final Duration duration;
